@@ -1,0 +1,9 @@
+BDD Feature File for Test Case TC_01
+
+Feature: Live Scores Display
+
+  Scenario: Display of live scores on homepage
+    Given I am on the ESPN Cricinfo homepage
+    When I look at the live scores section
+    Then I should see the current live scores of ongoing matches
+    And the scores should refresh automatically every minute

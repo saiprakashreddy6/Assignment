@@ -1,0 +1,31 @@
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.Assert;
+
+public class LiveScoresSteps {
+    WebDriver driver;
+
+    @Given("I am on the ESPN Cricinfo homepage")
+    public void i_am_on_the_ESPN_Cricinfo_homepage() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.espncricinfo.com/");
+    }
+
+    @Then("I should see the current live scores of ongoing matches")
+    public void i_should_see_the_current_live_scores_of_ongoing_matches() {
+        String scores = driver.findElement(By.id("live-scores")).getText();
+        Assert.assertNotNull("Live scores should be displayed", scores);
+    }
+
+    @Then("the scores should refresh automatically every minute")
+    public void the_scores_should_refresh_automatically_every_minute() throws InterruptedException {
+        Thread.sleep(60000); // Wait for 1 minute
+        String newScores = driver.findElement(By.id("live-scores")).getText();
+        Assert.assertNotEquals("Live scores should refresh", "Old Scores", newScores);
+        driver.quit();
+    }
+}

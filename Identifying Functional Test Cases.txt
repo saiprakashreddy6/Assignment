@@ -1,0 +1,11 @@
+To identify functional test cases for the ESPN Cricinfo website, we can consider various features that users typically interact with:
+Verify the display of real-time scores for ongoing matches.
+Verify Information on upcoming matches.
+Verify Statistics for players, such as runs, wickets, and averages.
+Verify the display of current team rankings in different formats.
+Verify access to the latest cricket news.
+Verify the ability to filter matches by date, format, or team.
+Verify the ability to search for players, teams, or matches.
+Verify the Users should be able to create an account or log in.
+Verify the Users can set up notifications for matches.
+Veriy the ability to share match updates on social media.
